@@ -7,11 +7,17 @@
 //
 
 #import "QQPopMenuView.h"
-#import "PopMenuTableViewCell.h"
 
+#ifndef SCREEN_WIDTH
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#endif
 
 static CGFloat const kCellHeight = 44;
+
+@interface PopMenuTableViewCell : UITableViewCell
+@property (nonatomic, strong) UIImageView *leftImageView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@end
 
 @interface QQPopMenuView ()<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,10 +33,7 @@ static CGFloat const kCellHeight = 44;
              triangleLocation:(CGPoint)point
                        action:(void(^)(NSInteger index))action
 {
-    if (array.count == 0) {
-        return nil;
-    }
-    
+    if (array.count == 0) return nil;
     if (self = [super init]) {
         self.frame = [UIScreen mainScreen].bounds;
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.2];
@@ -54,7 +57,7 @@ static CGFloat const kCellHeight = 44;
         _tableView.layer.cornerRadius = 5;
         _tableView.scrollEnabled = NO;
         _tableView.rowHeight = kCellHeight;
-        [_tableView registerNib:[UINib nibWithNibName:@"PopMenuTableViewCell" bundle:nil] forCellReuseIdentifier:@"PopMenuTableViewCell"];
+        [_tableView registerClass:[PopMenuTableViewCell class] forCellReuseIdentifier:@"PopMenuTableViewCell"];
         [self addSubview:_tableView];
     
     }
@@ -82,7 +85,7 @@ static CGFloat const kCellHeight = 44;
     return YES;
 }
 
-#pragma mark - Show or Hide
+#pragma mark - show or hide
 - (void)show {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     // 设置右上角为transform的起点（默认是中心点）
@@ -142,6 +145,7 @@ static CGFloat const kCellHeight = 44;
     NSDictionary *dic = _tableData[indexPath.row];
     cell.leftImageView.image = [UIImage imageNamed:dic[@"imageName"]];
     cell.titleLabel.text = dic[@"title"];
+    [cell.titleLabel sizeToFit];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.separatorInset = UIEdgeInsetsZero;
@@ -152,6 +156,41 @@ static CGFloat const kCellHeight = 44;
     [self hide];
     if (_action) {
         _action(indexPath.row);
+    }
+}
+
+@end
+
+
+
+
+
+
+@implementation PopMenuTableViewCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        
+        _leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, (kCellHeight - 20) / 2, 20, 20)];
+        [self.contentView addSubview:_leftImageView];
+        
+        
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_leftImageView.frame) + 15, _leftImageView.frame.origin.y, 0, 0)];
+        _titleLabel.font = [UIFont systemFontOfSize:16];
+        [self.contentView addSubview:_titleLabel];
+        
+    }
+    return self;
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    [super setHighlighted:highlighted animated:animated];
+    
+    if (highlighted) {
+        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+    }else {
+        self.backgroundColor = [UIColor whiteColor];
     }
 }
 

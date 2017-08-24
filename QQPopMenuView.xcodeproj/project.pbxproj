@@ -14,8 +14,6 @@
 		4443BE451DDABB4F003E2D91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4443BE441DDABB4F003E2D91 /* Assets.xcassets */; };
 		4443BE481DDABB4F003E2D91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4443BE461DDABB4F003E2D91 /* LaunchScreen.storyboard */; };
 		4443BE511DDABB92003E2D91 /* QQPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4443BE501DDABB92003E2D91 /* QQPopMenuView.m */; };
-		4443BE551DDADAA9003E2D91 /* PopMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4443BE531DDADAA9003E2D91 /* PopMenuTableViewCell.m */; };
-		4443BE561DDADAA9003E2D91 /* PopMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4443BE541DDADAA9003E2D91 /* PopMenuTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +29,6 @@
 		4443BE491DDABB4F003E2D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4443BE4F1DDABB92003E2D91 /* QQPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QQPopMenuView.h; sourceTree = "<group>"; };
 		4443BE501DDABB92003E2D91 /* QQPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QQPopMenuView.m; sourceTree = "<group>"; };
-		4443BE521DDADAA9003E2D91 /* PopMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopMenuTableViewCell.h; sourceTree = "<group>"; };
-		4443BE531DDADAA9003E2D91 /* PopMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenuTableViewCell.m; sourceTree = "<group>"; };
-		4443BE541DDADAA9003E2D91 /* PopMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopMenuTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,9 +67,6 @@
 				4443BE3F1DDABB4F003E2D91 /* ViewController.m */,
 				4443BE4F1DDABB92003E2D91 /* QQPopMenuView.h */,
 				4443BE501DDABB92003E2D91 /* QQPopMenuView.m */,
-				4443BE521DDADAA9003E2D91 /* PopMenuTableViewCell.h */,
-				4443BE531DDADAA9003E2D91 /* PopMenuTableViewCell.m */,
-				4443BE541DDADAA9003E2D91 /* PopMenuTableViewCell.xib */,
 				4443BE411DDABB4F003E2D91 /* Main.storyboard */,
 				4443BE441DDABB4F003E2D91 /* Assets.xcassets */,
 				4443BE461DDABB4F003E2D91 /* LaunchScreen.storyboard */,
@@ -151,7 +143,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4443BE561DDADAA9003E2D91 /* PopMenuTableViewCell.xib in Resources */,
 				4443BE481DDABB4F003E2D91 /* LaunchScreen.storyboard in Resources */,
 				4443BE451DDABB4F003E2D91 /* Assets.xcassets in Resources */,
 				4443BE431DDABB4F003E2D91 /* Main.storyboard in Resources */,
@@ -167,7 +158,6 @@
 			files = (
 				4443BE401DDABB4F003E2D91 /* ViewController.m in Sources */,
 				4443BE3D1DDABB4F003E2D91 /* AppDelegate.m in Sources */,
-				4443BE551DDADAA9003E2D91 /* PopMenuTableViewCell.m in Sources */,
 				4443BE3A1DDABB4F003E2D91 /* main.m in Sources */,
 				4443BE511DDABB92003E2D91 /* QQPopMenuView.m in Sources */,
 			);
